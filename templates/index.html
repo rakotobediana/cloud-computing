@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traduction Textuelle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h4>Traducteur</h4>
+    <div class="container">
+       
+        <!-- Formulaire pour la traduction -->
+        <form method="POST" class="translation-form">
+            <div class="text-area-container">
+                <div class="text-box">
+                    <label for="text">Texte à traduire :</label>
+                    <textarea name="text" id="text" rows="10" required></textarea>
+                </div>
+                <div class="text-box">
+                    <label for="translated_text">Texte traduit :</label>
+                    <textarea id="translated_text" rows="10" readonly>{{ translated_text }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <!-- Sélection de langue -->
+                <select name="language" id="language" required>
+                    <option value="en">Anglais</option>
+                    <option value="en">Anglais</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Espagnol</option>
+                    <option value="de">Allemand</option>
+                    <option value="it">Italien</option>
+                    <option value="pt">Portugais</option>
+                    <option value="ru">Russe</option>
+                    <option value="zh">Chinois</option>
+                    <option value="ja">Japonais</option>
+                    <option value="ar">Arabe</option>
+                    <option value="ko">Coréen</option>
+                    <option value="nl">Néerlandais</option>
+                    <option value="sv">Suédois</option>
+                    <option value="pl">Polonais</option>
+                    <option value="tr">Turc</option>
+                    <option value="hi">Hindi</option>
+                    <option value="el">Grec</option>
+                    <option value="he">Hébreu</option>
+                    <option value="vi">Vietnamien</option>
+                    <option value="th">Thaï</option>
+                </select>
+
+                <!-- Boutons Traduire et Télécharger -->
+                <button type="submit">Traduire</button>
+                <a href="{{ url_for('download', filename='translated_text.txt') }}" download="translated_text.txt">
+                    Télécharger 
+                </a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
